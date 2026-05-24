@@ -41,10 +41,12 @@ export default function DefendableCloud() {
       <main>
         <Hero />
         <SwarmLawsBand />
+        <ProductionDashboard />
         <ThreeLanes />
         <Models />
         <FiveProofs />
         <Fleet />
+        <ProofOfLocationBand />
         <ApiAndSdk />
         <AgentBenchDeep />
         <SwarmCuratorDeep />
@@ -223,6 +225,219 @@ function SwarmLawsBand() {
         <p className="mt-8 text-xs text-stone-500 italic font-serif leading-relaxed max-w-3xl">
           "Validate the Validator. Prove the Location." Anyone can sell
           rows. We sell <span className="text-amber-300/90 not-italic font-sans not-italic">defendable inventory</span>.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// Production Dashboard · the real numbers from Swarm-Wiki (2026-04-04)
+// ─────────────────────────────────────────────────────────────────────────
+function ProductionDashboard() {
+  return (
+    <section className="border-b border-stone-900">
+      <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28">
+        <div className="text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
+          PRODUCTION DASHBOARD · DASHBOARD SNAPSHOT 2026-04-04 · LIVE NUMBERS
+        </div>
+        <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight text-stone-50 max-w-3xl">
+          The refinery has been running.{" "}
+          <span className="font-serif italic font-normal text-amber-300">For months.</span>
+        </h2>
+        <p className="mt-5 text-base text-stone-400 leading-relaxed max-w-3xl">
+          DefendableCloud is the public surface · the engine has been in
+          production for months. These numbers are from the most recent
+          dashboard snapshot · the
+          {" "}
+          <a href="https://swarmandbee.ai/status" target="_blank" rel="noopener noreferrer" className="text-amber-300 hover:text-amber-200">
+            /status page
+          </a>
+          {" "}
+          updates in real-time · 14 fleet checks every 5 minutes · Resend
+          alerts on failure.
+        </p>
+
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-stone-900 border border-stone-900 rounded-xl overflow-hidden">
+          <DashTile n="1.5M" label="Graded pairs" sub="PostgreSQL · NAS .102:5433" />
+          <DashTile n="8,400+" label="Deeds filed" sub="Dual-judge · Merkle-anchored" />
+          <DashTile n="5,200+" label="Royal Jelly tier" sub="Score ≥ 0.85 · Class A" />
+          <DashTile n="167+" label="Merkle batches" sub="50 deeds per SHA-256 tree" />
+          <DashTile n="777/hr" label="Tribunal throughput" sub="24/7 · Scale A + Scale B" />
+          <DashTile n="13.5 TB" label="Total fleet VRAM" sub="128 RTX 6000 + 48 RTX 4500" />
+        </div>
+
+        <div className="mt-10 grid md:grid-cols-2 gap-6">
+          <div className="rounded-xl border border-amber-500/30 bg-amber-500/[0.04] p-6">
+            <div className="text-[10px] uppercase tracking-[0.22em] text-amber-400/80 font-semibold font-mono">
+              SHOP · STRIPE LIVE NOW · 2 DOMAINS SELLING
+            </div>
+            <h3 className="mt-3 text-xl font-semibold tracking-tight text-stone-50">
+              Buy a deeded dataset today.
+            </h3>
+            <ul className="mt-4 space-y-2 text-sm text-stone-300">
+              <li className="flex justify-between border-b border-stone-800 pb-2">
+                <span><span className="text-amber-300 font-semibold">Medical</span> · 5,038 deeds · 417K pairs in DB · 796K on disk</span>
+                <span className="text-stone-500 text-xs">AVAILABLE</span>
+              </li>
+              <li className="flex justify-between border-b border-stone-800 pb-2">
+                <span><span className="text-amber-300 font-semibold">Grants</span> · Master Writer · 1,378+ deeds · 35K pairs · 80K on disk</span>
+                <span className="text-stone-500 text-xs">AVAILABLE</span>
+              </li>
+              <li className="flex justify-between text-stone-500">
+                <span>CRE · 810K pairs · Aviation · Self-Healing · Legal</span>
+                <span className="text-xs">IN TRIBUNAL</span>
+              </li>
+              <li className="flex justify-between text-stone-500">
+                <span>Finance · Imaging · Blockchain · Research</span>
+                <span className="text-xs">COMING SOON</span>
+              </li>
+            </ul>
+            <a
+              href="https://swarmandbee.ai/shop"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-block rounded border border-amber-500/60 px-4 py-2 text-xs uppercase tracking-[0.18em] text-amber-300 hover:bg-amber-500/10 transition-colors font-mono"
+            >
+              Visit shop · swarmandbee.ai/shop ↗
+            </a>
+          </div>
+
+          <div className="rounded-xl border border-stone-800 bg-neutral-950/60 p-6">
+            <div className="text-[10px] uppercase tracking-[0.22em] text-stone-500 font-semibold font-mono">
+              ACTIVE COOK · IN FLIGHT
+            </div>
+            <h3 className="mt-3 text-xl font-semibold tracking-tight text-stone-50">
+              Gemma 4 31B · 75% complete · eval_loss 0.5194
+            </h3>
+            <p className="mt-3 text-sm text-stone-400 leading-relaxed">
+              Cooking on swarmrails (2× RTX PRO 6000 Blackwell 96GB). Loss
+              trajectory tracking under the locked Gold Standard recipe
+              (bf16 LoRA r=64 · LR 1e-5 · 0.6 epoch cap). When the cook
+              completes, the model joins the SwarmCurator family ·
+              dual-judge graded · DDEED issued · Hedera-anchored.
+            </p>
+            <p className="mt-4 text-xs text-stone-500 font-mono">
+              Tribunal config: Scale A gemma3:12b (GPU1) · Scale B qwen2.5:32b (GPU0) · 2-pass · drift ≤ 0.15 · deterministic
+            </p>
+          </div>
+        </div>
+
+        <p className="mt-10 text-xs text-stone-500 italic font-serif leading-relaxed max-w-3xl">
+          14 ENS domains registered (swarmgeo.eth newest · swarmchain.eth ·
+          swarmdeed.eth · swarmgraph.eth + 10 more). 7 permanent systemd
+          services. 5 Claude Code skills (/inventory · /cook-monitor ·
+          /deploy · /geo-report · /tribunal-status). Every hour, every
+          deed, every receipt traces back to the public Hedera HCS topic ·
+          forever.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function DashTile({ n, label, sub }: { n: string; label: string; sub: string }) {
+  return (
+    <div className="bg-neutral-950 px-4 py-5">
+      <div className="text-xl md:text-2xl font-semibold tracking-tight text-amber-300 tabular-nums font-mono">
+        {n}
+      </div>
+      <div className="mt-1.5 text-[10px] uppercase tracking-[0.22em] text-stone-300">{label}</div>
+      <div className="mt-0.5 text-[10px] text-stone-500 leading-tight">{sub}</div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// Proof of Location · the CRE analogy framework (the CFO pitch)
+// ─────────────────────────────────────────────────────────────────────────
+function ProofOfLocationBand() {
+  const mapping = [
+    ["The Asset",                "Building",                       "AI training pairs"],
+    ["The Location",             "Neighborhood",                   "Model capability space"],
+    ["The Deed",                 "Title deed",                     "Dual-judge scored deed certificate"],
+    ["The Title",                "Title insurance",                "Score guarantee ±0.15"],
+    ["The Appraisal",            "Independent valuation",          "Tribunal (2 base-model judges)"],
+    ["The Relocation",           "Moving to a better neighborhood", "Fine-tuning on Royal Jelly"],
+    ["The Proof",                "Comparable sales",               "Proof of Location benchmark (before/after delta)"],
+    ["The Flight Sheet",         "Relocation plan",                "Hardware + cost + timeline + client approval"],
+  ];
+  const classes = [
+    { tier: "CLASS A", grade: "Royal Jelly", score: "≥ 0.85", outcome: "Prime location · specialist responses · irreplaceable", tone: "amber-300" },
+    { tier: "CLASS B", grade: "Honey",       score: "0.70-0.84", outcome: "Decent area · adequate · replaceable", tone: "stone-300" },
+    { tier: "CLASS C", grade: "Propolis",    score: "< 0.70",    outcome: "Bad neighborhood · hallucinations · no tenants", tone: "stone-400" },
+  ];
+  return (
+    <section className="border-b border-stone-900 bg-neutral-950/60">
+      <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28">
+        <div className="text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
+          PROOF OF LOCATION · CRE DISCIPLINE APPLIED TO AI TRAINING DATA
+        </div>
+        <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight text-stone-50 max-w-3xl">
+          We don't sell datasets.{" "}
+          <span className="font-serif italic font-normal text-amber-300">We sell Proof of Location</span>.
+        </h2>
+        <p className="mt-5 text-base text-stone-400 leading-relaxed max-w-3xl">
+          The deed proves origin. The title insures quality. The Proof of
+          Location proves outcome. Founder{" "}
+          <span className="text-stone-200">Donovan Mackey</span> spent 30
+          years as a CRE broker · $8B in closed transactions · licensed
+          Florida real estate brokerage. The same discipline that makes a
+          $50M office tower bankable — title search · independent appraisal ·
+          title insurance · closing statement — now applied to AI training
+          data. Measurable. Reproducible. CFO-readable.
+        </p>
+
+        <div className="mt-10 overflow-x-auto rounded-xl border border-stone-800">
+          <table className="w-full text-sm">
+            <thead className="bg-neutral-950/60">
+              <tr className="border-b border-stone-800">
+                <th className="text-left py-3 px-4 text-[10px] uppercase tracking-[0.2em] text-stone-500 font-semibold">Concept</th>
+                <th className="text-left py-3 px-4 text-[10px] uppercase tracking-[0.2em] text-stone-500 font-semibold">CRE analogy</th>
+                <th className="text-left py-3 px-4 text-[10px] uppercase tracking-[0.22em] text-amber-300 font-semibold">Swarm &amp; Bee</th>
+              </tr>
+            </thead>
+            <tbody>
+              {mapping.map((r, i) => (
+                <tr key={i} className="border-b border-stone-900/60">
+                  <td className="py-3 px-4 text-stone-300 font-medium">{r[0]}</td>
+                  <td className="py-3 px-4 text-stone-400">{r[1]}</td>
+                  <td className="py-3 px-4 text-amber-300/90">{r[2]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="mt-12">
+          <div className="text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
+            3-CLASS LOCATION SYSTEM · CFO-GRADE TIERS
+          </div>
+          <h3 className="mt-4 text-2xl font-semibold tracking-tight text-stone-50">
+            How every pair gets graded.
+          </h3>
+          <div className="mt-6 grid md:grid-cols-3 gap-6">
+            {classes.map((c) => (
+              <div key={c.tier} className="rounded-xl border border-stone-800 bg-neutral-950 p-6">
+                <div className={`text-[10px] uppercase tracking-[0.22em] font-mono font-semibold text-${c.tone}`}>
+                  {c.tier}
+                </div>
+                <h4 className="mt-3 text-xl font-semibold tracking-tight text-stone-100">
+                  {c.grade}
+                </h4>
+                <div className="mt-2 text-xs text-amber-400/90 font-mono">{c.score}</div>
+                <p className="mt-4 text-sm text-stone-400 leading-relaxed">{c.outcome}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p className="mt-10 text-xs text-stone-500 italic font-serif leading-relaxed max-w-3xl">
+          "The market wants outcome infrastructure. Not tools, not
+          dashboards — systems that compound model capability over time."
+          That's what location does in CRE. That's what Royal Jelly does
+          in AI. — Karpathy's signal (12M views · April 2026) · adopted as
+          our north star.
         </p>
       </div>
     </section>
