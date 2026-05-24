@@ -40,8 +40,10 @@ export default function DefendableCloud() {
       <Header />
       <main>
         <Hero />
+        <SwarmLawsBand />
         <ThreeLanes />
         <Models />
+        <FiveProofs />
         <Fleet />
         <ApiAndSdk />
         <AgentBenchDeep />
@@ -124,8 +126,8 @@ function Hero() {
         <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-px bg-stone-900 border border-stone-900">
           <Stat n="128" label="RTX 6000 Blackwell" />
           <Stat n="12,288 GB" label="aggregate VRAM" />
-          <Stat n="4" label="open-weights models" />
-          <Stat n="3" label="product lanes" />
+          <Stat n="13+" label="trained custom models" />
+          <Stat n="6" label="flagship roles · live" />
         </div>
 
         <div className="mt-10 flex flex-wrap gap-3">
@@ -152,8 +154,10 @@ function Hero() {
         <p className="mt-10 text-xs text-stone-500 italic font-serif leading-relaxed max-w-2xl">
           "The cloud is rented. The rack is the building." We own the data
           center. We own the GPUs. We sign a no-logging contract before your
-          first token. That is how private inference works when the operator
-          owns the building.
+          first token. DefendableCloud is the public surface of the{" "}
+          <a href="https://swarmandbee.ai" className="text-amber-400/80 not-italic hover:text-amber-300">Swarm & Bee</a>{" "}
+          in-house refinery — 13+ trained custom models · 5 shipped · 5 Swarm
+          Laws · Genesis Law: <span className="text-stone-300">what the Hive verifies becomes truth</span>.
         </p>
       </div>
     </section>
@@ -168,6 +172,133 @@ function Stat({ n, label }: { n: string; label: string }) {
       </div>
       <div className="mt-1 text-[10px] uppercase tracking-[0.22em] text-stone-500">{label}</div>
     </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// The 5 Swarm Laws · brand doctrine band
+// ─────────────────────────────────────────────────────────────────────────
+function SwarmLawsBand() {
+  const laws = [
+    { n: "I",   title: "The Honey Law",   body: "You get more Bees with Honey." },
+    { n: "II",  title: "The Cell Law",    body: "Great intelligence begins with a single Cell." },
+    { n: "III", title: "The Swarm Law",   body: "The Swarm is stronger than the Bee." },
+    { n: "IV",  title: "The Purity Law",  body: "Virgin signal is the seed of great Honey." },
+    { n: "V",   title: "The Genesis Law", body: "What the Hive verifies becomes truth." },
+  ];
+  return (
+    <section className="border-b border-stone-900 bg-amber-500/[0.03]">
+      <div className="max-w-6xl mx-auto px-6 py-16 lg:py-20">
+        <div className="text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
+          THE 5 SWARM LAWS · BRAND DOCTRINE · LOCKED 2026-03-12
+        </div>
+        <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight text-stone-50 max-w-3xl">
+          What the Hive verifies{" "}
+          <span className="font-serif italic font-normal text-amber-300">becomes truth</span>.
+        </h2>
+        <p className="mt-5 text-base text-stone-400 leading-relaxed max-w-3xl">
+          Five laws govern the refinery. The fifth — the Genesis Law — is
+          the line that defines every Defendable Deed. A deed is not a
+          claim. It is what the Hive has verified · receipted · graded ·
+          and anchored. Once the Hive issues it, it is truth that can be
+          pulled back to first principles by anyone, any time.
+        </p>
+
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-stone-900 border border-stone-900 rounded-xl overflow-hidden">
+          {laws.map((law) => (
+            <div key={law.n} className="bg-neutral-950 p-5">
+              <div className="text-[10px] uppercase tracking-[0.22em] text-amber-400/70 font-semibold font-mono">
+                LAW {law.n}
+              </div>
+              <h3 className="mt-3 text-sm font-semibold tracking-tight text-stone-100">
+                {law.title}
+              </h3>
+              <p className="mt-2 text-xs text-stone-400 leading-relaxed font-serif italic">
+                {law.body}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-8 text-xs text-stone-500 italic font-serif leading-relaxed max-w-3xl">
+          "Validate the Validator. Prove the Location." Anyone can sell
+          rows. We sell <span className="text-amber-300/90 not-italic font-sans not-italic">defendable inventory</span>.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// The 5 Proofs · what every deed carries
+// ─────────────────────────────────────────────────────────────────────────
+function FiveProofs() {
+  const proofs = [
+    { n: "I",   title: "Proof of Origin",     body: "Which model · which node · which hardware · which strategy produced the output. Full attribution. No mystery." },
+    { n: "II",  title: "Proof of Quality",    body: "Deterministic verification score · not model opinion. JellyScore 5-component formula · 6 gates + 7th adversarial." },
+    { n: "III", title: "Proof of Process",    body: "Full lineage · what was tried · what failed · what survived. HoneyCard factory_path · Bee → Curator → Honey → Queen." },
+    { n: "IV",  title: "Proof of Economics",  body: "Energy cost per attempt · tokens consumed · cost-per-Honey trend. The CFO line item, on-chain." },
+    { n: "V",   title: "Proof of Trust",      body: "Hedera HCS anchor (topic 0.0.10291838) · Merkle root · cell-level PoSg certificates. Verifiable by anyone, forever." },
+  ];
+  return (
+    <section className="border-b border-stone-900">
+      <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28">
+        <div className="text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
+          THE 5 PROOFS · WHAT EVERY DEED CARRIES · LIVE ON HEDERA
+        </div>
+        <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight text-stone-50 max-w-3xl">
+          Five proofs.{" "}
+          <span className="font-serif italic font-normal text-amber-300">No asterisks.</span>
+        </h2>
+        <p className="mt-5 text-base text-stone-400 leading-relaxed max-w-3xl">
+          Without these proofs, a deed is just a JSONL file. With them,
+          it's a data asset. Every Defendable Deed issued by the Swarm &
+          Bee refinery carries all five — anchored on the public Hedera HCS
+          topic, verifiable by anyone with a Hedera explorer.
+        </p>
+
+        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-5 gap-px bg-stone-900 border border-stone-900 rounded-xl overflow-hidden">
+          {proofs.map((p) => (
+            <div key={p.n} className="bg-neutral-950 p-5">
+              <div className="text-[10px] uppercase tracking-[0.22em] text-amber-400/70 font-semibold font-mono">
+                PROOF {p.n}
+              </div>
+              <h3 className="mt-3 text-sm font-semibold tracking-tight text-stone-100">
+                {p.title}
+              </h3>
+              <p className="mt-2 text-xs text-stone-400 leading-relaxed">{p.body}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a
+            href="https://hashscan.io/#/mainnet/topic/0.0.10291838"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded border border-amber-500/40 px-4 py-2 text-xs uppercase tracking-[0.18em] text-amber-300 hover:bg-amber-500/10 transition-colors font-mono"
+          >
+            Verify on Hedera ↗
+          </a>
+          <a
+            href="https://swarmandbee.ai/chain"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded border border-stone-700 px-4 py-2 text-xs uppercase tracking-[0.18em] text-stone-300 hover:border-amber-500/40 hover:text-amber-300 transition-colors"
+          >
+            Watch the refinery work · swarmandbee.ai/chain ↗
+          </a>
+          <a
+            href="https://swarmandbee.ai/deed"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded border border-stone-700 px-4 py-2 text-xs uppercase tracking-[0.18em] text-stone-300 hover:border-amber-500/40 hover:text-amber-300 transition-colors"
+          >
+            The Deed Office · swarmandbee.ai/deed ↗
+          </a>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -271,94 +402,128 @@ function ThreeLanes() {
 function Models() {
   const models = [
     {
-      name: "CRE-Atlas 27B",
-      base: "Gemma 27B · open weights",
+      name: "SwarmCurator-27B-v1",
+      base: "Qwen3.5-27B Dense · bf16 LoRA r=64",
       params: "27 billion",
-      context: "128K tokens",
-      tagline: "The first LLM that speaks fluent CRE due-diligence.",
+      context: "4,096 tokens · 262K native",
+      tagline: "The flagship curator. 62,525 pairs cooked. Production-shipped.",
       uses: [
-        "Cap rate / NOI / DSCR analysis",
-        "NNN lease abstraction · STNL underwriting",
-        "1031 exchange flow modeling",
-        "MarketReady deed drafting",
+        "Cell generation from raw signal (the Curator stage)",
+        "CRE / Medical / Aviation / Finance domain pairs",
+        "Honey-tier output (93.9% rate at temp 0.05)",
+        "Feeds SwarmJelly · SwarmJudge · SwarmHoney downstream",
       ],
-      price: "TBD · request quote",
-      tier: "FLAGSHIP · CUSTOM",
+      price: "loss 0.477 · 14.38h cook",
+      tier: "FLAGSHIP · SHIPPED",
       tone: "amber-300",
     },
     {
-      name: "SwarmGrant 9B",
-      base: "Qwen 9B · open weights",
+      name: "SwarmCapitalMarkets-27B",
+      base: "Qwen3.5-27B Dense · bf16 LoRA r=64",
+      params: "27 billion",
+      context: "4,096 tokens",
+      tagline: "Capital markets specialist. EDGAR · FRED · ULI fluent.",
+      uses: [
+        "10-K / 10-Q filing analysis",
+        "FRED economic indicator reasoning",
+        "Restatement / retraction detection (7th gate)",
+        "Cross-source confirmation grading",
+      ],
+      price: "45,039 pairs · 844 steps · IN FLIGHT",
+      tier: "SPECIALIST · IN FLIGHT",
+      tone: "amber-300",
+    },
+    {
+      name: "SwarmJudge-9B-CRE",
+      base: "Qwen3.5-9B · bf16 LoRA r=64",
       params: "9 billion",
-      context: "32K tokens",
-      tagline: "Grant-writing co-pilot tuned on federal + foundation corpora.",
+      context: "4,096 tokens",
+      tagline: "The CRE-domain LLM judge. Block-0 Phase 1 complete.",
       uses: [
-        "RFP drafting · SBIR / STTR / NIH",
-        "Foundation application generation",
-        "Budget + justification narratives",
-        "Compliance checklist auto-fill",
+        "Tribunal verdict generation (Honey / Jelly / Propolis)",
+        "5-grade rubric scoring (Capability · Truth · Safety · Numeric · Efficiency)",
+        "Trajectory keyword validation (IDENTIFY · CALCULATE · ANALYZE)",
+        "Cross-validates Kimi K2.6 + OpenAI gpt-4o ensemble",
       ],
-      price: "TBD · request quote",
-      tier: "SPECIALIST · CUSTOM",
+      price: "Phase 2 training · DDEED forthcoming",
+      tier: "JUDGE · IN TRAINING",
       tone: "amber-300",
     },
     {
-      name: "Qwen 32B base",
-      base: "Qwen 2.5 32B · open weights",
-      params: "32 billion",
-      context: "128K tokens",
-      tagline: "General reasoning · strong tool-use · code-fluent.",
+      name: "SwarmJelly-4B",
+      base: "Qwen3.5-4B · 125K corpus · Q4_K_M GGUF",
+      params: "4 billion",
+      context: "4,096 tokens",
+      tagline: "The self-healing engine. Failure → 5 Royal Jelly tasks.",
       uses: [
-        "Tool-use agents · function calling",
-        "Code generation · review · refactor",
-        "Structured output · JSON / XML / SQL",
-        "Multi-step reasoning chains",
+        "DIAGNOSE · what went wrong (root cause)",
+        "REPAIR · how to fix it (corrected output)",
+        "PREVENT · guardrail to add (new rule check)",
+        "DETECT · is this output failing? · COMPARE · A/B",
       ],
-      price: "TBD · request quote",
-      tier: "BASE · OPEN WEIGHTS",
-      tone: "stone-300",
+      price: "DEPLOYED · whale:11434 · 200 tok/s",
+      tier: "REFINERY · LIVE",
+      tone: "amber-300",
     },
     {
-      name: "Gemma 27B base",
-      base: "Google Gemma 27B · open weights",
-      params: "27 billion",
-      context: "128K tokens",
-      tagline: "Long-context fluency · clean structured output for RAG.",
+      name: "SwarmRouter-v1",
+      base: "Qwen2.5-3B-Instruct · QLoRA r=32 · 60K examples",
+      params: "3 billion",
+      context: "32K tokens",
+      tagline: "The routing brain. <100ms decisions. Live at router.swarmandbee.com.",
       uses: [
-        "Long-document RAG (10K-100K tokens)",
-        "Structured output · table / list extraction",
-        "Translation · summarization at length",
-        "CRE-Atlas base · upgrade path",
+        "Domain classification (8 domains · 95%+ accuracy)",
+        "Model selection (router-3b · research-8b · med-14b · research-32b)",
+        "Risk / latency / cost tier inference",
+        "Tool requirement detection · escalation routing",
       ],
-      price: "TBD · request quote",
-      tier: "BASE · OPEN WEIGHTS",
-      tone: "stone-300",
+      price: "LIVE · router.swarmandbee.com",
+      tier: "ROUTER · LIVE",
+      tone: "amber-300",
+    },
+    {
+      name: "SwarmAtlas-27B",
+      base: "Qwen3.5-27B Dense · CRE corpus",
+      params: "27 billion",
+      context: "4,096 tokens",
+      tagline: "The CRE master. Atlas Firm OS senior MD model.",
+      uses: [
+        "CRE underwriting · cap rate / NOI / DSCR / NNN",
+        "1031 exchange flow modeling",
+        "STNL lease abstraction",
+        "MarketReady deed drafting + signing",
+      ],
+      price: "in HoneyCard production",
+      tier: "MASTER · SHIPPED",
+      tone: "amber-300",
     },
   ];
   return (
     <section id="models" className="border-b border-stone-900 bg-neutral-950/60">
       <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28">
         <div className="text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
-          OPEN-WEIGHTS MENU · NO BLACK BOXES · SOVEREIGN
+          THE SWARM FLEET · 13+ TRAINED CUSTOM MODELS · 5 SHIPPED · 1 IN FLIGHT
         </div>
         <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight text-stone-50 max-w-3xl">
-          Four models.{" "}
-          <span className="font-serif italic font-normal text-amber-300">Sovereign.</span>{" "}
-          Audit-grade.
+          Six flagship roles.{" "}
+          <span className="font-serif italic font-normal text-amber-300">One Gold Standard recipe.</span>{" "}
+          One Hive.
         </h2>
         <p className="mt-5 text-base text-stone-400 leading-relaxed max-w-3xl">
-          Every model is open-weights. Nothing is locked behind a hyperscaler
-          API. Two are custom Defendable fine-tunes (CRE-Atlas, SwarmGrant)
-          built for the domains we operate in. Two are clean base models you
-          can swap into any OpenAI-SDK call. v2 menu adds Llama 70B, DeepSeek,
-          and Mixtral on operator request.
+          Every model is a Qwen3.5 fine-tune via the locked Gold Standard
+          recipe (bf16 LoRA r=64 · LR 1e-5 · 0.6 epoch cap · 10 production
+          rules). All trained in-house on the Swarm & Bee fleet. Currently
+          shipped: SwarmCurator-27B-v1 · 9B-P1 · 9B-P2 · 2B-v1 ·
+          SwarmRouter-v1 · SwarmJelly-4B. In flight: SwarmCapitalMarkets-27B ·
+          SwarmJudge-9B-CRE Phase 2. Plus: SwarmHoney-27B · SwarmCRE-9B ·
+          SwarmJunior · atlas-bookmaker · 13+ models total.
         </p>
 
-        <div className="mt-12 grid md:grid-cols-2 gap-6">
+        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {models.map((m) => (
             <div
               key={m.name}
-              className="rounded-xl border border-stone-800 bg-neutral-950 p-6 md:p-8 flex flex-col"
+              className="rounded-xl border border-stone-800 bg-neutral-950 p-6 flex flex-col"
             >
               <div className="flex items-start justify-between gap-3">
                 <div>
@@ -937,14 +1102,30 @@ license        · operator-private + Defendable receipt rights`;
           <div className="space-y-6">
             <div className="rounded-xl border border-stone-800 bg-neutral-950/60 p-5">
               <div className="text-[10px] uppercase tracking-[0.22em] text-amber-400/80 font-semibold">
-                DOMAIN PACKS
+                13 PRODUCTION DOMAINS · A/B TESTED · HASH-VERSIONED
               </div>
-              <ul className="mt-3 space-y-2 text-sm text-stone-400">
-                <li className="flex gap-2"><span className="text-amber-400 mt-0.5">·</span><span><span className="text-stone-200">CRE</span> · cap rate / NOI / NNN / 1031</span></li>
-                <li className="flex gap-2"><span className="text-amber-400 mt-0.5">·</span><span><span className="text-stone-200">Grants</span> · SBIR / STTR / NIH / foundations</span></li>
-                <li className="flex gap-2"><span className="text-amber-400 mt-0.5">·</span><span><span className="text-stone-200">Legal</span> · contracts / case law / discovery</span></li>
-                <li className="flex gap-2"><span className="text-amber-400 mt-0.5">·</span><span><span className="text-stone-200">Custom</span> · scoped on intake</span></li>
-              </ul>
+              <div className="mt-3 grid grid-cols-2 gap-x-3 gap-y-1 text-xs text-stone-400 font-mono">
+                <span>· aviation</span>
+                <span>· cre</span>
+                <span>· medical</span>
+                <span>· ai</span>
+                <span>· economic</span>
+                <span>· energy</span>
+                <span>· climate</span>
+                <span>· crypto</span>
+                <span>· legal</span>
+                <span>· finance</span>
+                <span>· software</span>
+                <span>· supply_chain</span>
+                <span>· patents</span>
+                <span className="text-stone-500">+ default</span>
+              </div>
+              <p className="mt-4 text-[11px] text-stone-500 italic font-serif leading-relaxed">
+                Each domain ships hash-versioned system prompts + instructions
+                + concept terms · regression-tested with canary papers · A/B
+                factorial-tested for JellyScore lift (+9.2 pts proven on
+                aviation). Custom domains scoped on intake.
+              </p>
             </div>
 
             <div className="rounded-xl border border-amber-500/30 bg-amber-500/[0.04] p-5">
@@ -1318,9 +1499,16 @@ function Footer() {
             <li><a href={DEFENDABLEOS_URL} className="hover:text-amber-300">defendableos.com</a></li>
             <li><a href="https://defendableos.com/honeybox" className="hover:text-amber-300">HoneyBox · edge</a></li>
             <li><a href="https://defendableos.com/doctrine" className="hover:text-amber-300">Doctrine</a></li>
-            <li><a href="https://defendableos.com/how-it-works" className="hover:text-amber-300">How It Works</a></li>
             <li><a href={DOCS_URL} className="hover:text-amber-300">Docs</a></li>
             <li><a href="https://opendefendable.com" className="hover:text-amber-300">OpenDefendable · OSS</a></li>
+          </ul>
+          <div className="mt-5 text-[10px] uppercase tracking-[0.22em] text-stone-500 font-semibold">Swarm &amp; Bee · Live Engine</div>
+          <ul className="mt-3 space-y-2 text-stone-400">
+            <li><a href="https://swarmandbee.ai/chain" className="hover:text-amber-300">/chain · The Arena</a></li>
+            <li><a href="https://swarmandbee.ai/deed" className="hover:text-amber-300">/deed · The Deed Office</a></li>
+            <li><a href="https://swarmandbee.ai/shop" className="hover:text-amber-300">/shop · Deeded datasets</a></li>
+            <li><a href="https://swarmandbee.ai/graph" className="hover:text-amber-300">/graph · Provenance graph</a></li>
+            <li><a href="https://hashscan.io/#/mainnet/topic/0.0.10291838" className="hover:text-amber-300">Hedera anchor ↗</a></li>
           </ul>
         </div>
       </div>
@@ -1328,7 +1516,7 @@ function Footer() {
       <div className="border-t border-stone-900">
         <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row gap-2 sm:gap-0 justify-between text-[11px] text-stone-600">
           <div>© 2026 Swarm and Bee LLC · DBA Swarm & Bee AI · Florida · D-U-N-S 138652395</div>
-          <div className="font-serif italic">"The cloud is rented. The rack is the building."</div>
+          <div className="font-serif italic">"What the Hive verifies becomes truth."</div>
         </div>
       </div>
     </footer>
