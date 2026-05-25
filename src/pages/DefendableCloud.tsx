@@ -9,7 +9,7 @@
 // docs.defendableos.com (full docs). Charcoal+honey palette matching the
 // rest of the brand stack.
 
-const SALES_EMAIL = "build@defendableos.com";
+const SALES_EMAIL = "build@swarmandbee.ai";
 const X_URL = "https://x.com/swarmandbee";
 const LINKEDIN_URL = "https://www.linkedin.com/in/donovan-mackey-89a6063b6/";
 const GITHUB_URL = "https://github.com/SudoSuOps";
@@ -1565,7 +1565,7 @@ function Faq() {
     },
     {
       q: "How do I start?",
-      a: "Email build@defendableos.com with your lane (inference / bench / curator) and use case. We quote within 24h. First key issued same day if HIPAA/GDPR posture isn't needed · 3-5 days with compliance paperwork.",
+      a: "Email build@swarmandbee.ai with your lane (inference / bench / curator) and use case. We quote within 24h. First key issued same day if HIPAA/GDPR posture isn't needed · 3-5 days with compliance paperwork.",
     },
     {
       q: "What is a Defendable Agent Deed™?",
