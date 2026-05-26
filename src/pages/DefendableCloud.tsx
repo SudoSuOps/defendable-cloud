@@ -41,6 +41,14 @@ export default function DefendableCloud() {
       <main>
         <Hero />
         <SwarmLawsBand />
+        <FoundationToExecution />
+        <CloudDirective />
+        <HowAMissionRuns />
+        <RefereeRuntime />
+        <OwnersBoxSection />
+        <ReceiptVault />
+        <ReplayQualifiedTraining />
+        <MissionPacks />
         <ProductionDashboard />
         <ThreeLanes />
         <Models />
@@ -66,11 +74,11 @@ export default function DefendableCloud() {
 // ─────────────────────────────────────────────────────────────────────────
 function Header() {
   const navItems: [string, string][] = [
-    ["Lanes", "#lanes"],
-    ["Models", "#models"],
-    ["Fleet", "#fleet"],
+    ["Protocol", "#mission-protocol"],
+    ["Owner's Box", "#owners-box"],
+    ["Runtimes", "#models"],
+    ["Known Compute", "#fleet"],
     ["AgentBench", "#agentbench"],
-    ["SwarmCurator", "#swarmcurator"],
     ["Pricing", "#pricing"],
   ];
   return (
@@ -111,18 +119,21 @@ function Hero() {
     <section className="border-b border-stone-900">
       <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28">
         <div className="text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
-          PRIVATE INFERENCE · OPERATOR-OWNED · DC-OWNED · NO LOGS · CONTRACTUAL
+          DEFENDABLECLOUD — MISSION EXECUTION INFRASTRUCTURE
         </div>
         <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-stone-50 leading-[1.05] max-w-4xl">
-          Private inference.{" "}
-          <span className="font-serif italic font-normal text-amber-300">Operator-owned.</span>{" "}
-          Paid in full.
+          Run AI Missions on Infrastructure{" "}
+          <span className="font-serif italic font-normal text-amber-300">That Records the Truth.</span>
         </h1>
         <p className="mt-7 text-lg md:text-xl text-stone-300 leading-relaxed max-w-3xl">
-          128 RTX 6000 Blackwell · 12,288 GB aggregate VRAM · housed in a data
-          center we own · zero debt service · zero hyperscaler markup.{" "}
-          <span className="text-stone-100">Same OpenAI SDK.</span>{" "}
-          <span className="text-stone-100">Different base_url.</span> Works in 30 seconds.
+          DefendableCloud is operator-owned infrastructure for accountable AI
+          execution. Every mission runs under a DefendableOS flightsheet, a
+          locked rulebook and preserved receipts — so humans can see what
+          passed, what drifted and what deserves final approval.
+        </p>
+        <p className="mt-4 text-sm text-stone-400 leading-relaxed max-w-3xl">
+          Operator-owned private inference is the foundation. Accountable
+          mission execution is the product.
         </p>
 
         <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-px bg-stone-900 border border-stone-900">
@@ -137,26 +148,32 @@ function Hero() {
             href={MAILTO_ACCESS}
             className="rounded border border-amber-500 bg-amber-500/10 px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.18em] text-amber-300 hover:bg-amber-500/20 transition-colors"
           >
-            Request inference key
+            Run a Mission
           </a>
           <a
-            href="#agentbench"
+            href={`${DEFENDABLEOS_URL}/owners-box`}
             className="rounded border border-stone-700 px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.18em] text-stone-300 hover:border-amber-500/40 hover:text-amber-300 transition-colors"
           >
-            Bench your agent
+            Open the Owner's Box
           </a>
           <a
             href="#models"
             className="rounded border border-stone-700 px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.18em] text-stone-300 hover:border-amber-500/40 hover:text-amber-300 transition-colors"
           >
-            Browse models
+            Browse runtimes
           </a>
         </div>
 
-        <p className="mt-10 text-xs text-stone-500 italic font-serif leading-relaxed max-w-2xl">
+        <p className="mt-8 text-xs text-stone-400 font-mono leading-relaxed max-w-2xl">
+          Known Compute. Recorded Execution. Neutral Referee Calls. Human Finality.
+        </p>
+
+        <p className="mt-6 text-xs text-stone-500 italic font-serif leading-relaxed max-w-2xl">
           "The cloud is rented. The rack is the building." We own the data
           center. We own the GPUs. We sign a no-logging contract before your
-          first token. DefendableCloud is the public surface of the{" "}
+          first token. DefendableCloud is the mission execution layer for{" "}
+          <a href={DEFENDABLEOS_URL} className="text-amber-400/80 not-italic hover:text-amber-300">DefendableOS</a>
+          {" "}· the public surface of the{" "}
           <a href="https://swarmandbee.ai" className="text-amber-400/80 not-italic hover:text-amber-300">Swarm & Bee</a>{" "}
           in-house refinery — 13+ trained custom models · 5 shipped · 5 Swarm
           Laws · Genesis Law: <span className="text-stone-300">what the Hive verifies becomes truth</span>.
@@ -200,10 +217,11 @@ function SwarmLawsBand() {
         </h2>
         <p className="mt-5 text-base text-stone-400 leading-relaxed max-w-3xl">
           Five laws govern the refinery. The fifth — the Genesis Law — is
-          the line that defines every Defendable Deed. A deed is not a
-          claim. It is what the Hive has verified · receipted · graded ·
-          and anchored. Once the Hive issues it, it is truth that can be
-          pulled back to first principles by anyone, any time.
+          the line that defines every mission run on DefendableCloud. A
+          result is not a claim. It is what neutral referees have verified ·
+          receipted · graded · and anchored after the execution behind it
+          survived replay and a human granted finality. Once issued, it is
+          truth that can be pulled back to first principles by anyone, any time.
         </p>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-stone-900 border border-stone-900 rounded-xl overflow-hidden">
@@ -234,6 +252,332 @@ function SwarmLawsBand() {
 // ─────────────────────────────────────────────────────────────────────────
 // Production Dashboard · the real numbers from Swarm-Wiki (2026-04-04)
 // ─────────────────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────
+// Mission positioning sections (DefendableOS mission-execution layer)
+// ─────────────────────────────────────────────────────────────────────────
+
+// S1 · From private inference to accountable execution + the message spine.
+function FoundationToExecution() {
+  return (
+    <section className="border-b border-stone-900">
+      <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28">
+        <div className="rounded-xl border border-amber-500/30 bg-amber-500/[0.05] px-6 py-6 lg:px-8 lg:py-7 max-w-4xl">
+          <p className="text-base md:text-lg text-stone-200 leading-relaxed">
+            DefendableCloud is the mission execution layer for{" "}
+            <span className="text-amber-300 font-semibold">DefendableOS</span>: operator-owned
+            AI infrastructure where every assignment runs under a written
+            directive, every material action produces a receipt, neutral
+            referees call what the evidence proves, and the human owner grants
+            finality.
+          </p>
+        </div>
+
+        <div className="mt-12 text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
+          FROM PRIVATE INFERENCE TO ACCOUNTABLE EXECUTION
+        </div>
+        <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight text-stone-50 max-w-3xl">
+          Private Inference Is the Foundation.{" "}
+          <span className="font-serif italic font-normal text-amber-300">Proof of Execution Is the Standard.</span>
+        </h2>
+        <p className="mt-5 text-base text-stone-400 leading-relaxed max-w-3xl">
+          Running a model privately matters. Knowing where the workload
+          executed matters. Owning the compute matters. But mission-critical AI
+          requires more than a private endpoint.
+        </p>
+        <p className="mt-4 text-base text-stone-400 leading-relaxed max-w-3xl">
+          DefendableCloud runs real assignments under visible accountability:
+          the mission is defined before execution, the rules are locked, the
+          artifacts are preserved, referee calls are recorded and the human
+          owner decides whether the work may proceed.
+        </p>
+        <div className="mt-8 rounded-xl border border-stone-800 bg-neutral-950/60 px-6 py-5 max-w-3xl">
+          <p className="text-lg font-semibold tracking-tight text-stone-100">
+            A private answer can still be wrong.{" "}
+            <span className="font-serif italic font-normal text-amber-300">A recorded mission can be replayed.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// S2 · The Cloud Directive.
+function CloudDirective() {
+  const fields = [
+    "Objective", "Scope", "Authorized agents and roles", "Approved models or runtimes",
+    "Required deliverables", "Required evidence", "Deterministic calculations",
+    "Prohibited actions", "Referee pack", "Human approval boundary",
+  ];
+  return (
+    <section className="border-b border-stone-900 bg-neutral-950/60">
+      <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28">
+        <div className="text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
+          THE CLOUD DIRECTIVE
+        </div>
+        <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight text-stone-50 max-w-3xl">
+          Every Mission Runs{" "}
+          <span className="font-serif italic font-normal text-amber-300">Under a Directive.</span>
+        </h2>
+        <p className="mt-5 text-base text-stone-400 leading-relaxed max-w-3xl">
+          DefendableCloud does not begin with an open-ended prompt. It begins
+          with an instrumented mission directive — a flightsheet aligned to the
+          DefendableOS protocol. A mission directive defines:
+        </p>
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-stone-900 border border-stone-900 rounded-xl overflow-hidden">
+          {fields.map((f) => (
+            <div key={f} className="bg-neutral-950 p-5">
+              <p className="text-sm text-stone-300 leading-snug">{f}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-8 text-base text-stone-300 leading-relaxed max-w-3xl">
+          The work begins only after the rules are visible.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+// S3 · How a mission runs (7 steps).
+function HowAMissionRuns() {
+  const steps = [
+    { t: "Mission Intake", b: "Define the real objective, the authorized actors, required outputs and the release boundary." },
+    { t: "Flightsheet", b: "Convert the assignment into an accountable execution plan with measurable requirements." },
+    { t: "Known Compute", b: "Run approved agents or models on attributable operator-owned infrastructure." },
+    { t: "Recorded Execution", b: "Preserve material artifacts, hashes, model/runtime identity, timing, sources, calculations and output receipts." },
+    { t: "Neutral Referee Calls", b: "Apply precommitted code, math, provenance, chronology and boundary checks." },
+    { t: "Owner's Box", b: "Show the human what passed, what failed, where drift entered and what requires remediation." },
+    { t: "Human Finality", b: "Nothing becomes trusted, deployed, published or eligible for training solely because an AI completed the job." },
+  ];
+  return (
+    <section id="mission-protocol" className="border-b border-stone-900 scroll-mt-16">
+      <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28">
+        <div className="text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
+          HOW A MISSION RUNS
+        </div>
+        <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight text-stone-50 max-w-3xl">
+          The Field for{" "}
+          <span className="font-serif italic font-normal text-amber-300">Accountable AI Work.</span>
+        </h2>
+        <ol className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-stone-900 border border-stone-900 rounded-xl overflow-hidden">
+          {steps.map((s, i) => (
+            <li key={s.t} className="bg-neutral-950 p-6">
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-2xl font-semibold tracking-tight text-amber-300 tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-sm font-semibold text-stone-100">{s.t}</span>
+              </div>
+              <p className="mt-3 text-sm text-stone-400 leading-relaxed">{s.b}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+// S4 · The referee runtime (7 cards).
+function RefereeRuntime() {
+  const refs = [
+    { t: "Math Referee", b: "Recomputes formulas, totals, percentages, reconciliations and structured ledgers." },
+    { t: "Chronology Referee", b: "Detects impossible dates, stale receipts and evidence that could not exist in the stated order." },
+    { t: "Roster Referee", b: "Confirms which agents, models and synthesis layers actually touched the assignment." },
+    { t: "Provenance Referee", b: "Checks whether the source quality permits the claim strength." },
+    { t: "Replay Referee", b: "Identifies where final synthesis preserved, narrowed or corrupted subordinate work." },
+    { t: "Boundary Referee", b: "Prevents unauthorized claims of approval, publication, certification or finality." },
+    { t: "Compute Receipt Referee", b: "Ties mission execution to known infrastructure, runtime identity and preserved workload receipts." },
+  ];
+  return (
+    <section className="border-b border-stone-900 bg-neutral-950/60">
+      <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28">
+        <div className="text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
+          THE REFEREE RUNTIME
+        </div>
+        <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight text-stone-50 max-w-3xl">
+          Code and Math Are{" "}
+          <span className="font-serif italic font-normal text-amber-300">Pre-Cooked Before the Mission Starts.</span>
+        </h2>
+        <p className="mt-5 text-base text-stone-400 leading-relaxed max-w-3xl">
+          The DefendableCloud referee runtime applies neutral checks defined
+          before execution. It is not another model offering another opinion.
+          It is an accountable control layer designed to expose what the
+          recorded evidence supports.
+        </p>
+        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {refs.map((r) => (
+            <div key={r.t} className="rounded-xl border border-stone-800 bg-neutral-950/60 p-6">
+              <h3 className="text-lg font-semibold tracking-tight text-stone-50">{r.t}</h3>
+              <p className="mt-3 text-sm text-stone-400 leading-relaxed">{r.b}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-8 text-base text-stone-300 leading-relaxed max-w-3xl">
+          The referees do not choose the winner. They call what the tape proves.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+// S5 · Owner's Box.
+function OwnersBoxSection() {
+  const shows = [
+    "the mission called", "the agents and compute involved", "the credited work",
+    "the penalties called", "the calculations that passed or failed",
+    "the sources that support or limit each claim", "the remediation queue",
+    "the final release boundary",
+  ];
+  return (
+    <section id="owners-box" className="border-b border-stone-900 scroll-mt-16">
+      <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28">
+        <div className="text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
+          OWNER'S BOX
+        </div>
+        <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight text-stone-50 max-w-3xl">
+          The Human Does Not Receive{" "}
+          <span className="font-serif italic font-normal text-amber-300">a Black Box Report.</span>
+        </h2>
+        <p className="mt-5 text-base text-stone-400 leading-relaxed max-w-3xl">
+          Owner's Box is the human-controlled decision layer for missions run
+          through DefendableCloud. Instead of receiving polished output with
+          hidden failure risk, the human sees the execution record:
+        </p>
+        <div className="mt-10 grid sm:grid-cols-2 gap-x-8 gap-y-3 max-w-4xl">
+          {shows.map((s) => (
+            <div key={s} className="flex items-start gap-2.5 text-sm text-stone-300 leading-relaxed">
+              <span className="mt-1.5 inline-block h-1 w-1 rounded-full bg-amber-400 shrink-0" />
+              <span>{s}</span>
+            </div>
+          ))}
+        </div>
+        <p className="mt-10 text-xl md:text-2xl font-semibold tracking-tight text-stone-100">
+          Neutral referees call the game.{" "}
+          <span className="font-serif italic font-normal text-amber-300">The human owner grants finality.</span>
+        </p>
+        <div className="mt-8">
+          <a
+            href={`${DEFENDABLEOS_URL}/owners-box`}
+            className="rounded border border-amber-500 bg-amber-500/10 px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.18em] text-amber-300 hover:bg-amber-500/20 transition-colors"
+          >
+            Open the Owner's Box
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// S6 · Receipt Vault / Proof of Execution.
+function ReceiptVault() {
+  const objs = [
+    "mission directives", "agent rosters", "model/runtime identity",
+    "compute execution records", "artifact hashes", "source registries",
+    "claim ledgers", "referee findings", "remediation histories", "human decisions",
+  ];
+  return (
+    <section className="border-b border-stone-900 bg-neutral-950/60">
+      <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28">
+        <div className="text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
+          RECEIPT VAULT · PROOF OF EXECUTION
+        </div>
+        <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight text-stone-50 max-w-3xl">
+          Every Material Mission{" "}
+          <span className="font-serif italic font-normal text-amber-300">Leaves a Receipt.</span>
+        </h2>
+        <p className="mt-5 text-base text-stone-400 leading-relaxed max-w-3xl">
+          DefendableCloud is designed to preserve the evidence behind AI
+          execution, not merely the final prose. Receipt objects may include:
+        </p>
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-stone-900 border border-stone-900 rounded-xl overflow-hidden">
+          {objs.map((o) => (
+            <div key={o} className="bg-neutral-950 p-5">
+              <p className="text-sm text-stone-300 leading-snug">{o}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-8 rounded-xl border border-stone-800 bg-neutral-950/60 px-6 py-5 max-w-3xl">
+          <p className="text-lg font-semibold tracking-tight text-stone-100">
+            Compute proves where the work ran.{" "}
+            <span className="font-serif italic font-normal text-amber-300">Receipts prove what the work did.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// S7 · Replay-qualified training.
+function ReplayQualifiedTraining() {
+  const outputs = [
+    "correction pairs", "operating guidance", "evaluation packs",
+    "training candidates", "deployment policy updates",
+  ];
+  return (
+    <section className="border-b border-stone-900">
+      <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28">
+        <div className="text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
+          REPLAY-QUALIFIED TRAINING
+        </div>
+        <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight text-stone-50 max-w-3xl">
+          Training Begins{" "}
+          <span className="font-serif italic font-normal text-amber-300">After the Replay.</span>
+        </h2>
+        <p className="mt-5 text-base text-stone-400 leading-relaxed max-w-3xl">
+          DefendableCloud does not treat every generated output as training
+          material. Missions run first. Behavior is recorded. Referee calls
+          identify what passed, what drifted and what must be corrected. Only
+          human-approved discoveries should become:
+        </p>
+        <ul className="mt-6 grid sm:grid-cols-2 gap-x-8 gap-y-2.5 max-w-3xl">
+          {outputs.map((o) => (
+            <li key={o} className="flex items-start gap-2.5 text-sm text-stone-300 leading-relaxed">
+              <span className="mt-1.5 inline-block h-1 w-1 rounded-full bg-amber-400 shrink-0" />
+              <span>{o}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-10 rounded-xl border border-amber-500/30 bg-amber-500/[0.04] px-6 py-6 max-w-3xl">
+          <p className="text-base font-mono text-stone-200 leading-relaxed">
+            No Replay, No Training. No Proof, No Promotion. No Human Approval, No Finality.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// S8 · Mission packs / use cases.
+function MissionPacks() {
+  const packs = [
+    { t: "Compute Appraisal Missions", b: "Run hardware identity, benchmark, market-comp and valuation-assumption checks under preserved receipts." },
+    { t: "Federal Research Missions", b: "Verify deadlines, eligibility fields, required documents, entity data and source authority before reliance." },
+    { t: "Agent Coding Missions", b: "Track requested scope, files changed, build/test outcomes, forbidden actions and release boundaries." },
+    { t: "Commercial Real Estate Missions", b: "Recompute underwriting math, expose assumptions, preserve sources and flag unsupported investment conclusions." },
+    { t: "AI Investment Missions", b: "Test revenue proof, compute costs, quality claims and valuation logic before a human accepts the thesis." },
+    { t: "Replay-Qualified Training Missions", b: "Discover which execution failures and successful behaviors are actually worth teaching next." },
+  ];
+  return (
+    <section className="border-b border-stone-900 bg-neutral-950/60">
+      <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28">
+        <div className="text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
+          MISSION PACKS
+        </div>
+        <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight text-stone-50 max-w-3xl">
+          Choose a Mission. Apply a Referee Pack.{" "}
+          <span className="font-serif italic font-normal text-amber-300">Review the Tape.</span>
+        </h2>
+        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {packs.map((p) => (
+            <div key={p.t} className="rounded-xl border border-stone-800 bg-neutral-950/60 p-6">
+              <h3 className="text-base font-semibold tracking-tight text-amber-300">{p.t}</h3>
+              <p className="mt-3 text-sm text-stone-400 leading-relaxed">{p.b}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ProductionDashboard() {
   return (
     <section className="border-b border-stone-900">
@@ -1392,7 +1736,7 @@ function TrustAndPrivacy() {
     <section className="border-b border-stone-900">
       <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28">
         <div className="text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
-          PRIVATE BY CONTRACT · NOT BY PROMISE
+          OPERATOR-OWNED COMPUTE · PROTOCOL-GOVERNED MISSIONS
         </div>
         <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight text-stone-50 max-w-3xl">
           No logs. No training.{" "}
@@ -1400,10 +1744,14 @@ function TrustAndPrivacy() {
           Receipted.
         </h2>
         <p className="mt-5 text-base text-stone-400 leading-relaxed max-w-3xl">
-          The privacy story most cloud LLM providers can't tell · because they
-          rent infrastructure, sub-contract to a hyperscaler, and can't sign
-          the no-log paper without breaking their margin model. We own the
-          building. So we can sign it.
+          DefendableCloud is built on operator-owned infrastructure because
+          accountable AI begins with attributable execution. Known hardware,
+          controlled inference and preserved receipts create a stronger
+          foundation for mission-critical workloads than anonymous output
+          alone. It is the privacy story most cloud LLM providers can't tell ·
+          because they rent infrastructure, sub-contract to a hyperscaler, and
+          can't sign the no-log paper without breaking their margin model. We
+          own the building. So we can sign it.
         </p>
 
         <div className="mt-12 grid md:grid-cols-2 gap-6">
@@ -1610,26 +1958,33 @@ function CtaContact() {
     <section className="border-b border-stone-900 bg-neutral-950/60">
       <div className="max-w-4xl mx-auto px-6 py-20 lg:py-28 text-center">
         <div className="text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
-          START A CONVERSATION
+          RUN THE MISSION · RECORD THE PROOF
         </div>
         <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight text-stone-50">
-          Three lanes.{" "}
-          <span className="font-serif italic font-normal text-amber-300">One inbox.</span>
+          Run the Mission.{" "}
+          <span className="font-serif italic font-normal text-amber-300">Record the Proof.</span>
         </h2>
         <p className="mt-5 text-base text-stone-400 leading-relaxed max-w-2xl mx-auto">
-          Every lane starts the same way · a short note to{" "}
+          Bring real AI work onto infrastructure built for accountability.
+          Define the directive. Execute on known compute. Preserve the
+          receipts. Apply the referee calls. Keep final authority with the
+          human owner. Every mission starts with a short note to{" "}
           <a href={`mailto:${SALES_EMAIL}`} className="text-amber-300 hover:text-amber-200">
             {SALES_EMAIL}
-          </a>{" "}
-          with your use case and the lane you want. We quote within 24 hours
-          and issue your first key (or bench, or dataset) within the week.
+          </a>.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           <a
             href={MAILTO_ACCESS}
             className="rounded border border-amber-500 bg-amber-500/10 px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.18em] text-amber-300 hover:bg-amber-500/20 transition-colors"
           >
-            Request inference key
+            Run a Mission
+          </a>
+          <a
+            href={DEFENDABLEOS_URL}
+            className="rounded border border-stone-700 px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.18em] text-stone-300 hover:border-amber-500/40 hover:text-amber-300 transition-colors"
+          >
+            Explore DefendableOS
           </a>
           <a
             href={MAILTO_BENCH}
@@ -1644,6 +1999,10 @@ function CtaContact() {
             Start curator intake
           </a>
         </div>
+        <p className="mt-8 text-sm text-stone-400 font-serif italic leading-relaxed max-w-2xl mx-auto">
+          DefendableCloud runs the field. DefendableOS governs the protocol.
+          The human owner controls finality.
+        </p>
         <p className="mt-10 text-xs text-stone-500">
           Full product surface ·{" "}
           <a href={DEFENDABLEOS_URL} className="text-amber-400/80 hover:text-amber-300">
@@ -1770,7 +2129,7 @@ function JsonLd() {
         "@type": "Product",
         name: "DefendableCloud Inference",
         description:
-          "OpenAI-SDK compatible private inference on operator-owned 128 RTX 6000 Blackwell fleet. Open-weights models. Contractual no-logging.",
+          "Mission execution infrastructure for accountable AI: OpenAI-SDK compatible private inference on operator-owned 128 RTX 6000 Blackwell fleet, run under DefendableOS flightsheets, neutral referee calls and preserved receipts. Open-weights models. Contractual no-logging.",
         brand: { "@id": "https://defendablecloud.com/#org" },
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/PreOrder" },
       },
