@@ -2,7 +2,7 @@
   "name": "defendable-cloud",
   "version": "0.1.0",
   "private": true,
-  "description": "DefendableCloud — operator-owned private inference. 128 RTX 6000 Blackwell · 12,288 GB VRAM · paid in full · DC-owned. Inference · AgentBench · SwarmCurator. Open-weights models including CRE-Atlas 27B and SwarmGrant 9B.",
+  "description": "DefendableCloud — controlled synthetic public field demo with server-side Pages Function actions, audited limitations, no external SaaS enforcement, no real refunds, and no production clearance.",
   "type": "module",
   "scripts": {
     "dev": "vite",
