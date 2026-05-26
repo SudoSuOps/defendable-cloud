@@ -1,0 +1,108 @@
+{
+  "release_id": "defendablecloud-docs-field-utilization-v0.1",
+  "release_name": "DefendableCloud + DefendableDocs Field Utilization Release v0.1",
+  "builder": "DefendableOS field-release builder (original module builder)",
+  "release_date": "2026-05-26T17:32:19.369953+00:00",
+  "cloud_repo": "https://github.com/SudoSuOps/defendable-cloud",
+  "cloud_baseline_commit": "6fe1f003827327a0a08f611fc5eb78b12f78fad3",
+  "cloud_release_commit": "e17692671b8b33fea51d29d68e78ed45cb660fcb",
+  "docs_repo": "https://github.com/SudoSuOps/defendable-docs",
+  "docs_baseline_commit": "c6e746725e60d47e29857105bce8dde82b22a422",
+  "docs_release_commit": "0f27376410c9b730a27375415f198b2556d54699",
+  "public_cloud_urls": [
+    "https://defendablecloud.com/agent-operations-demo",
+    "https://defendablecloud.com/api/demo/agent-operations/roster",
+    "https://defendablecloud.com/api/demo/agent-operations/evidence",
+    "https://defendablecloud.com/api/demo/agent-operations/actions/classify-ticket",
+    "https://defendablecloud.com/api/demo/agent-operations/actions/draft-response",
+    "https://defendablecloud.com/api/demo/agent-operations/actions/issue-refund",
+    "https://defendablecloud.com/api/demo/agent-operations/actions/request-refund-review"
+  ],
+  "public_docs_urls": [
+    "https://defendabledocs.com/field-release/overview/",
+    "https://defendabledocs.com/field-release/module-records/",
+    "https://defendabledocs.com/field-release/audit-receipt/",
+    "https://defendabledocs.com/field-release/status-labels/"
+  ],
+  "demo_environment": "SYNTHETIC_DEMO_ONLY",
+  "audited_module_references": {
+    "swarm-doctor": "https://github.com/SudoSuOps/swarm-doctor",
+    "conditioning-coach": "https://github.com/SudoSuOps/conditioning-coach",
+    "owner-roster-registry": "https://github.com/SudoSuOps/owner-roster-registry",
+    "permission-broker": "https://github.com/SudoSuOps/permission-broker"
+  },
+  "tribunal_audit_repo": "https://github.com/SudoSuOps/defendableos-tribunal-audit",
+  "tribunal_reaudit_head": "284d92b096e17a23ee7977f9f084d877e221368b",
+  "verified_live_demo_actions": [
+    {
+      "action": "classify_ticket",
+      "decision": "ALLOW_AND_EXECUTE_LOCAL_MOCK",
+      "executed": true
+    },
+    {
+      "action": "draft_customer_response",
+      "decision": "ALLOW_AND_EXECUTE_LOCAL_MOCK",
+      "executed": true
+    },
+    {
+      "action": "request_refund_review",
+      "decision": "QUEUE_FOR_HUMAN_APPROVAL",
+      "executed_sensitive_action": false
+    }
+  ],
+  "denied_demo_actions": [
+    {
+      "action": "issue_refund",
+      "decision": "DENY_ACTION_NOT_IN_PERMISSION_ENVELOPE",
+      "executed": false,
+      "refund_records": 0
+    },
+    {
+      "action": "make_policy_exception",
+      "decision": "DENY_ACTION_NOT_IN_PERMISSION_ENVELOPE",
+      "executed": false
+    },
+    {
+      "action": "close_compliance_case",
+      "decision": "DENY_ACTION_NOT_IN_PERMISSION_ENVELOPE",
+      "executed": false
+    }
+  ],
+  "evidence_paths": [
+    "CLAIM_HYGIENE_REVIEW_v0.1.md",
+    "FIELD_RELEASE_EXECUTIVE_REPORT.md",
+    "LIVE_DEMO_TEST_RESULTS.md",
+    "PUBLIC_DEMO_LIMITATIONS.md",
+    "PUBLIC_URL_VERIFICATION.md",
+    "SAFETY_GATE_RESULT.md",
+    "SITE_INVENTORY_AFTER.md",
+    "SITE_INVENTORY_BEFORE.md"
+  ],
+  "safety_gate_result": "PASS",
+  "known_limitations": [
+    "synthetic only",
+    "broker-routed/demo enforcement only",
+    "no external SaaS restriction",
+    "no real refund execution",
+    "no live paging",
+    "no certification/insurance",
+    "no blockchain/ENS operation",
+    "no authenticated owner signature proof",
+    "NOT CLEARED FOR PRODUCTION",
+    "NOT CLEARED FOR EXTERNAL SAAS ENFORCEMENT"
+  ],
+  "excluded_claims": [
+    "production ready",
+    "certified",
+    "insured",
+    "externally enforced",
+    "cryptographically approved",
+    "immutable proof",
+    "deployed client governance",
+    "live customer protection"
+  ],
+  "deployment_status": "LIVE PUBLIC CONTROLLED DEMO",
+  "hash_integrity_note": "Release receipt hashes provide content-integrity linkage only \u2014 not external attestation, owner signature, certification, or production clearance.",
+  "timestamp": "2026-05-26T17:32:19.369953+00:00",
+  "receipt_hash": "b641c5f694bf9920af6dc68e5d096a14ba95d43d78de1781d8e1f6d09406aa17"
+}

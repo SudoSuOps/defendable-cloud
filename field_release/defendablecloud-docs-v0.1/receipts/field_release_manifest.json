@@ -1,0 +1,19 @@
+{
+  "release_id": "defendablecloud-docs-field-utilization-v0.1",
+  "generated_at": "2026-05-26T17:32:19.369953+00:00",
+  "cloud_release_commit": "e17692671b8b33fea51d29d68e78ed45cb660fcb",
+  "docs_release_commit": "0f27376410c9b730a27375415f198b2556d54699",
+  "reports": {
+    "CLAIM_HYGIENE_REVIEW_v0.1.md": "013f04d8712fdc36f8a1deef7faf67f813b49018948c303a4e58e4022eb6b4b6",
+    "FIELD_RELEASE_EXECUTIVE_REPORT.md": "5282660f120d029a05d95dad07b5f4b6e68d93608e016c7826215a57320337f3",
+    "LIVE_DEMO_TEST_RESULTS.md": "15d27578acea371493ebf4b062a10adde32465fca05cb87bbd3e1fd22c2b1b1c",
+    "PUBLIC_DEMO_LIMITATIONS.md": "8fd46356ccf38aecb0d02e0be2f73e7425af92fbe45f51a911fb9fb98a45ef9a",
+    "PUBLIC_URL_VERIFICATION.md": "3a08e5c001c24dc93901fd6db2bee97f13b7a8b16a46031948d01a6e434656bf",
+    "SAFETY_GATE_RESULT.md": "19ac4497363f824d87388dbe91347f282431e5c052f78451d6de3b55c800fca3",
+    "SITE_INVENTORY_AFTER.md": "2ccf1d4a75ecfd02c2641c3363652c8ad45fe704032b2108d249b645889de649",
+    "SITE_INVENTORY_BEFORE.md": "cda4826a3fbcddf7c59c703bc7156e187b9061f04b64369504df6f3f102c7eb8"
+  },
+  "receipt_file_hash": "59869c63fc9891c09d9cd544cf8da5ad37e0a33b6729af8ffdff1a69dadfe6f8",
+  "hash_integrity_note": "Release receipt hashes provide content-integrity linkage only \u2014 not external attestation, owner signature, certification, or production clearance.",
+  "manifest_hash": "d31d6a01fd1ff4ec5808905bc058738715ede35219cf3e6ea93a0227db18084b"
+}
