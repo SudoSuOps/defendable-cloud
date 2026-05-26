@@ -69,13 +69,55 @@ export async function runPlay(action: string, _payload: Record<string, unknown>)
 
   const receipt: Record<string, unknown> = {
     receipt_id: rid("enf"), actor_id: actor, requested_action: action, decision, executed,
-    executed_sensitive_action: sensitive, detail, local_mock_record_id: mock,
-    environment: ROSTER.environment, starter_authority_inherited: false,
-    external_enforcement_claimed: false, timestamp: new Date().toISOString(),
-    limitation: "Synthetic demo · broker-routed local mock only · no external enforcement.",
+    executed_sensitive_action: sensitive,
+    draft_only: action === "draft_customer_response" ? true : undefined,
+    sent_externally: action === "draft_customer_response" ? false : undefined,
+    detail, local_mock_record_id: mock, environment: ROSTER.environment,
+    starter_authority_inherited: false, external_enforcement_claimed: false,
+    production_clearance: false, real_refund_executed: false,
+    served_by: "cloudflare_pages_function_server_side",
+    timestamp: new Date().toISOString(),
+    limitations: [
+      "synthetic demo only", "broker-routed local mock only", "no external SaaS enforcement",
+      "no real refund execution", "not cleared for production",
+    ],
+    hash_method: "canonical JSON, self-referential hash field excluded; content-integrity only",
   };
   receipt.receipt_hash = await sha256Canonical(receipt);
   return receipt;
+}
+
+// Per-action Pages handler: POST runs the play; any other method returns a structured 405.
+export function actionHandler(action: string): PagesFunction {
+  return async ({ request }) => {
+    if (request.method !== "POST") {
+      return json({ error: "method_not_allowed", allow: "POST", action }, 405);
+    }
+    return json(await runPlay(action, await readJson(request)));
+  };
+}
+
+// Deterministic, stateless synthetic audit summary. The server has NO code path that executes a
+// refund, so refund_execution_count is 0 by construction. Counts represent one canonical
+// controlled-demo session; they are deterministic, not a persistent per-session counter.
+export function actionLog() {
+  return {
+    demo_environment: ROSTER.environment,
+    stateless_note: "Cloudflare Pages Functions are stateless; this is a deterministic synthetic summary, not a live persistent counter. refund_execution_count is 0 by construction (no server code path executes a refund).",
+    refund_execution_count: 0,
+    refund_execution_possible_server_side: false,
+    denied_refund_count: 1,
+    denied_refund_decision: "DENY_ACTION_NOT_IN_PERMISSION_ENVELOPE",
+    human_review_queue_count: 1,
+    human_review_executes_sensitive_action: false,
+    allowed_mock_action_count: 2,
+    allowed_actions: ROSTER.backup.allowed,
+    denied_actions: ROSTER.denied,
+    external_enforcement_claimed: false,
+    production_clearance: false,
+    limitations: ["synthetic demo only", "no external SaaS enforcement", "no real refund execution"],
+    hash_method: "canonical JSON, self-referential hash field excluded; content-integrity only",
+  };
 }
 
 export async function readJson(request: Request): Promise<Record<string, unknown>> {
