@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 // DefendableCloud · operator-owned private inference + AgentBench + SwarmCurator
 //
 // Single deep scrolling product surface for defendablecloud.com. Three lanes
@@ -15,24 +17,11 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/donovan-mackey-89a6063b6/";
 const GITHUB_URL = "https://github.com/SudoSuOps";
 const DEFENDABLEOS_URL = "https://defendableos.com";
 const DOCS_URL = "https://docs.defendableos.com";
+const CONTACT_URL = "#contact";
 
-const MAILTO_ACCESS = `mailto:${SALES_EMAIL}?subject=${encodeURIComponent(
-  "Request access · DefendableCloud",
-)}&body=${encodeURIComponent(
-  "Hi DefendableCloud — \n\nLane of interest (circle):  Inference  /  AgentBench  /  SwarmCurator\n\nUse case / volume:\n\nModel(s) of interest (CRE-Atlas 27B / SwarmGrant 9B / Qwen / Gemma):\n\nCompliance posture needed (HIPAA / GDPR / SOC2 / none):\n\nName / company:\n",
-)}`;
-
-const MAILTO_BENCH = `mailto:${SALES_EMAIL}?subject=${encodeURIComponent(
-  "AgentBench intake · DefendableCloud",
-)}&body=${encodeURIComponent(
-  "Hi DefendableCloud — I'd like to bench an AI agent.\n\nAgent name + version:\nDomain (CRE / Grants / Legal / Code / Other):\nPack of interest (Compute Inspector / Refund Ranger / Custom):\nReceipt format needed (DDEED JSON / signed PDF / both):\n\nName / company:\n",
-)}`;
-
-const MAILTO_CURATOR = `mailto:${SALES_EMAIL}?subject=${encodeURIComponent(
-  "SwarmCurator intake · DefendableCloud",
-)}&body=${encodeURIComponent(
-  "Hi SwarmCurator — I'd like a curated dataset.\n\nDomain (CRE / Grants / Legal / Custom):\nRaw signal source (own corpus / public crawl / hybrid):\nOutput format needed (JSONL / Parquet / HF dataset / LoRA-ready):\nVolume estimate (rows / GB):\n\nName / company:\n",
-)}`;
+const MAILTO_ACCESS = CONTACT_URL;
+const MAILTO_BENCH = CONTACT_URL;
+const MAILTO_CURATOR = CONTACT_URL;
 
 export default function DefendableCloud() {
   return (
@@ -62,6 +51,7 @@ export default function DefendableCloud() {
         <Pricing />
         <Faq />
         <CtaContact />
+        <ContactFormSection />
       </main>
       <Footer />
       <JsonLd />
@@ -2017,6 +2007,115 @@ function CtaContact() {
         </p>
       </div>
     </section>
+  );
+}
+
+type ContactStatus = "idle" | "sending" | "ok" | "error";
+
+function ContactFormSection() {
+  const [status, setStatus] = useState<ContactStatus>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    company: "",
+    lane: "inference",
+    message: "",
+  });
+
+  async function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (status === "sending") return;
+    setStatus("sending");
+    setErrorMsg("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const body = (await res.json().catch(() => ({}))) as { error?: string };
+        throw new Error(body.error || `HTTP ${res.status}`);
+      }
+      setStatus("ok");
+      setForm({ name: "", email: "", company: "", lane: form.lane, message: "" });
+    } catch (err: unknown) {
+      setStatus("error");
+      setErrorMsg(err instanceof Error ? err.message : "Send failed");
+    }
+  }
+
+  function setField<K extends keyof typeof form>(key: K, value: (typeof form)[K]) {
+    setForm((current) => ({ ...current, [key]: value }));
+  }
+
+  return (
+    <section id="contact" className="border-b border-stone-900 bg-neutral-950/80">
+      <div className="max-w-5xl mx-auto px-6 py-20 lg:py-24">
+        <div className="grid lg:grid-cols-[1fr_1fr] gap-10 items-start">
+          <div>
+            <div className="text-[10px] uppercase tracking-[0.24em] text-amber-400/80 font-semibold">
+              CONTACT · FOUNDER-ROUTED
+            </div>
+            <h2 className="mt-5 text-3xl md:text-4xl font-semibold tracking-tight text-stone-50">
+              Contact DefendableCloud.
+            </h2>
+            <p className="mt-5 text-base text-stone-400 leading-relaxed">
+              This form routes to <span className="font-mono text-stone-300">{SALES_EMAIL}</span> for inference, AgentBench, and SwarmCurator intake.
+            </p>
+            <div className="mt-8 rounded-xl border border-stone-800 bg-neutral-950/60 p-6">
+              <div className="text-[10px] uppercase tracking-[0.22em] text-amber-400/80 font-semibold">Direct</div>
+              <a href={`mailto:${SALES_EMAIL}`} className="mt-3 inline-block font-mono text-lg text-amber-300 hover:text-amber-200">
+                {SALES_EMAIL}
+              </a>
+            </div>
+          </div>
+
+          <form onSubmit={onSubmit} className="rounded-xl border border-stone-800 bg-neutral-950/60 p-6 space-y-4">
+            <FieldCloud label="Lane" required>
+              <select value={form.lane} onChange={(e) => setField("lane", e.target.value)} className={cloudInputCls}>
+                <option value="inference">Inference</option>
+                <option value="agentbench">AgentBench</option>
+                <option value="swarmcurator">SwarmCurator</option>
+                <option value="other">Other</option>
+              </select>
+            </FieldCloud>
+            <FieldCloud label="Your name" required>
+              <input type="text" required value={form.name} onChange={(e) => setField("name", e.target.value)} className={cloudInputCls} autoComplete="name" />
+            </FieldCloud>
+            <FieldCloud label="Email" required>
+              <input type="email" required value={form.email} onChange={(e) => setField("email", e.target.value)} className={cloudInputCls} autoComplete="email" />
+            </FieldCloud>
+            <FieldCloud label="Company">
+              <input type="text" value={form.company} onChange={(e) => setField("company", e.target.value)} className={cloudInputCls} autoComplete="organization" placeholder="optional" />
+            </FieldCloud>
+            <FieldCloud label="Message" required>
+              <textarea required rows={6} value={form.message} onChange={(e) => setField("message", e.target.value)} className={`${cloudInputCls} resize-none leading-relaxed`} placeholder="What lane do you need, what workload, what volume, and what compliance posture?" />
+            </FieldCloud>
+            {status === "error" && <div className="rounded border border-rose-500/40 bg-rose-500/[0.06] px-4 py-3 text-xs text-rose-300">{errorMsg || "Send failed. Email build@swarmandbee.ai directly."}</div>}
+            {status === "ok" && <div className="rounded border border-emerald-500/40 bg-emerald-500/[0.06] px-4 py-3 text-xs text-emerald-300">Message received.</div>}
+            <button type="submit" disabled={status === "sending"} className="w-full rounded border border-amber-500 bg-amber-500/10 px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-amber-300 hover:bg-amber-500/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+              {status === "sending" ? "Sending..." : status === "ok" ? "Sent" : "Contact DefendableCloud"}
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const cloudInputCls =
+  "w-full rounded border border-stone-800 bg-stone-900/80 px-4 py-3 text-sm text-stone-100 placeholder:text-stone-600 outline-none transition-colors focus:border-amber-500 focus:ring-1 focus:ring-amber-500/40";
+
+function FieldCloud({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
+  return (
+    <label className="block">
+      <span className="block text-[11px] uppercase tracking-[0.14em] text-stone-400 font-semibold mb-1.5">
+        {label}{required && <span className="text-amber-400 ml-1">*</span>}
+      </span>
+      {children}
+    </label>
   );
 }
 
