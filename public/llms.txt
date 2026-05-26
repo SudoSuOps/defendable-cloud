@@ -1,20 +1,29 @@
 # DefendableCloud · AI context manifest
 #
-# Last updated: 2026-05-25 (v0.1.0 brand-stack lock · Hedera doctrine cleanup · operator-entity unification · ecosystem-wide contact unification)
+# Last updated: 2026-05-25 (mission-execution repositioning · DefendableCloud = the mission execution layer for DefendableOS · v0.1.0 brand-stack lock · ecosystem-wide contact unification)
 # Generated 2026-05-24 · https://defendablecloud.com/
 
-> DefendableCloud is operator-owned private inference with three product
-> lanes on one fleet: Inference (per-million-token billing, OpenAI-SDK
-> compatible), AgentBench (Tribunal-graded AI agent benchmarking that
-> issues Defendable Agent Deeds™), and SwarmCurator (receipted dataset
-> curation with Bakery Packs on the shelf or custom concierge intake).
-> SwarmFixer is the agent refinery that closes the AgentBench grade→fix
-> loop. 128 RTX 6000 Blackwell · 12,288 GB aggregate VRAM · paid in full ·
-> data-center-owned · contractual no-logging.
+> DefendableCloud is the mission execution layer for DefendableOS:
+> operator-owned AI infrastructure where every assignment runs under a
+> written directive, every material action produces a receipt, neutral
+> referees call what the evidence proves, and the human owner grants
+> finality. Operator-owned private inference is the foundation;
+> accountable mission execution is the product.
+>
+> Three product lanes run on one fleet: Inference (per-million-token
+> billing, OpenAI-SDK compatible), AgentBench (Tribunal-graded AI agent
+> benchmarking that issues Defendable Agent Deeds™), and SwarmCurator
+> (receipted dataset curation with Bakery Packs on the shelf or custom
+> concierge intake). SwarmFixer is the agent refinery that closes the
+> AgentBench grade→fix loop. 128 RTX 6000 Blackwell · 12,288 GB aggregate
+> VRAM · paid in full · data-center-owned · contractual no-logging.
+>
+> Operating rule: No Replay, No Training. No Proof, No Promotion. No Human
+> Approval, No Finality.
 
 ## Operator
 Swarm and Bee LLC · DBA Swarm & Bee AI · Florida · D-U-N-S 138652395
-A surface of DefendableOS · the third-party defense layer for AI operators.
+The mission execution layer for DefendableOS · the neutral officiating protocol for accountable AI agent execution.
 
 ## Product surfaces
 - https://defendablecloud.com/                  — this site
@@ -22,7 +31,8 @@ A surface of DefendableOS · the third-party defense layer for AI operators.
 - https://defendableos.com/cloud                — in-context cloud overview
 - https://defendableos.com/honeybox             — sister product · edge HoneyBox
 - https://defendableos.com/doctrine             — 12-article doctrine
-- https://defendableos.com/how-it-works         — depth page · deed + math + drift
+- https://defendableos.com/how-it-works         — protocol · how missions run
+- https://defendableos.com/owners-box            — Owner's Box · human decision console (illustrative sample)
 - https://docs.defendableos.com/                — documentation
 - https://opendefendable.com/                   — OSS standards body (sister)
 
@@ -70,12 +80,18 @@ against your agent repo) · Embedded (90-day Fix-or-Refund engagement).
 - No published rate cards · we won't publish dishonest numbers
 
 ## Doctrine alignment
-- Offense (your AI agent does the work) / Defense (we receipt + grade + fix)
+- DefendableOS writes the rules · DefendableCloud runs the mission · Owner's
+  Box shows the calls · the human decides what survives.
+- Mission protocol chain: flightsheet → locked rulebook → known compute →
+  recorded execution → neutral referee calls → Owner's Box → human finality →
+  replay-qualified training.
+- Neutral referee runtime (pre-committed, not another opinion model): Math ·
+  Chronology · Roster · Provenance · Replay · Boundary · Compute Receipt.
 - 5-grade rubric · never collapsed: Capability 25 · Truth 20 · Safety 20 ·
   Numeric 15 · Efficiency 10 · Reproducibility 10
 - Honey / Jelly / Propolis Tribunal taxonomy · rule-then-judge architecture
-- Daily reconciliation in the shadows · agent works freely · grader runs at 2am
 - CRE due-diligence vocabulary · "the rack is the building"
+- The referees do not choose the winner · they call what the tape proves.
 
 ## Brand contract
 DefendableCloud (and all DefendableOS surfaces) never ships an offense
