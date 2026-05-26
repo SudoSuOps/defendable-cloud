@@ -1,0 +1,84 @@
+{
+  "release_id": "defendablecloud-docs-router-field-utilization-v0.1",
+  "repair_id": "codex-deployed-utility-repair-v0.1",
+  "builder": "DefendableOS field-release builder (original module builder)",
+  "date": "2026-05-26T19:06:48.758195+00:00",
+  "codex_deployed_audit_reference": {
+    "verdict": "REPAIR_REQUIRED",
+    "audit_repo": "https://github.com/SudoSuOps/defendableos-tribunal-audit",
+    "reaudit_head": "284d92b096e17a23ee7977f9f084d877e221368b"
+  },
+  "cloud_baseline_commit": "21ddad923d1f1d69a5b6788a9d424ad2ab378daf",
+  "cloud_repair_commit": "dd60c800e953aa3d0bd104a17fcb0fa92284bbe6",
+  "docs_baseline_commit": "0f27376410c9b730a27375415f198b2556d54699",
+  "docs_repair_commit": "47f3a55a0620e0f792bba06718e0c52372e4ea83",
+  "router_baseline_commit": "ef02593e10c885aa164b4ab2d97b3492be5e7718",
+  "router_repair_commit": "efe2741814b0bf34661a6e6f11ebf5d9aa4d6699",
+  "public_urls_tested": [
+    "https://defendablecloud.com/agent-operations-demo",
+    "https://defendablecloud.com/api/demo/agent-operations/roster",
+    "https://defendablecloud.com/api/demo/agent-operations/evidence",
+    "https://defendablecloud.com/api/demo/agent-operations/action-log",
+    "https://defendabledocs.com/api/overview/",
+    "https://defendabledocs.com/tribunal/overview/",
+    "https://defendabledocs.com/defendablerouter/overview/",
+    "https://defendablerouter.com/"
+  ],
+  "api_routes_tested": {
+    "POST /actions/classify-ticket": "HTTP 200 ALLOW_AND_EXECUTE_LOCAL_MOCK executed=true",
+    "POST /actions/draft-response": "HTTP 200 ALLOW executed=true draft_only=true sent_externally=false",
+    "POST /actions/issue-refund": "HTTP 200 DENY_ACTION_NOT_IN_PERMISSION_ENVELOPE executed=false real_refund_executed=false",
+    "POST /actions/request-refund-review": "HTTP 200 QUEUE_FOR_HUMAN_APPROVAL executed_sensitive_action=false",
+    "GET /actions/issue-refund": "HTTP 405 method_not_allowed (JSON)",
+    "GET /action-log": "HTTP 200 refund_execution_count=0 denied_refund_count=1 human_review_queue_count=1"
+  },
+  "allowed_actions_verified": [
+    "classify_ticket",
+    "draft_customer_response"
+  ],
+  "denied_actions_verified": [
+    "issue_refund",
+    "make_policy_exception",
+    "close_compliance_case"
+  ],
+  "action_log_no_refund_evidence": {
+    "refund_execution_count": 0,
+    "external_enforcement_claimed": false,
+    "demo_environment": "SYNTHETIC_DEMO_ONLY"
+  },
+  "docs_claims_patched": [
+    "api/overview",
+    "tribunal/overview",
+    "defendablerouter/overview",
+    "ddeed/overview",
+    "streetledger/overview",
+    "streetchat/overview",
+    "swarmfixer/overview",
+    "defendableledger/overview",
+    "agentbench-clawcheck/overview",
+    "index (prior)"
+  ],
+  "router_status_corrected": "ROADMAP / FIELD INTEGRATION PENDING; positioning + local spine only; not in live Cloud demo path; banner live in deployed bundle",
+  "known_limitations": [
+    "synthetic only",
+    "broker-routed/demo enforcement only",
+    "stateless action-log (deterministic synthetic summary)",
+    "NOT CLEARED FOR PRODUCTION",
+    "NOT CLEARED FOR EXTERNAL SAAS ENFORCEMENT",
+    "Router not integrated",
+    "docs sub-pages labeling deferred"
+  ],
+  "excluded_claims": [
+    "production ready",
+    "externally enforced",
+    "certified",
+    "insured",
+    "blockchain anchored",
+    "ENS signed",
+    "carrier ready",
+    "client pilot ready"
+  ],
+  "hash_method": "canonical JSON with self-referential hash fields excluded where applicable; content-integrity only, not authorship/approval/attestation/certification/insurance/anchoring/production clearance",
+  "timestamp": "2026-05-26T19:06:48.758195+00:00",
+  "receipt_hash": "63b5415a2db1231b5821e01f23d2857304e29c6f0445ae05053c6e764a593a01"
+}

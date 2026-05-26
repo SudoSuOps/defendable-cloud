@@ -1,0 +1,19 @@
+{
+  "repair_id": "codex-deployed-utility-repair-v0.1",
+  "generated_at": "2026-05-26T19:06:48.758195+00:00",
+  "cloud_repair_commit": "dd60c800e953aa3d0bd104a17fcb0fa92284bbe6",
+  "docs_repair_commit": "47f3a55a0620e0f792bba06718e0c52372e4ea83",
+  "router_repair_commit": "efe2741814b0bf34661a6e6f11ebf5d9aa4d6699",
+  "reports": {
+    "CLAIM_HYGIENE_DIFF.md": "91cc3d9e028d618961bd9c75d4da245f92d33f9d613af6dc872c271f8c600ac4",
+    "DEFENDABLECLOUD_REPAIR_PROOF.md": "cb03c4f6720ee7e6cf307d355044d3769bba3d8c29656178580f51756b0d59ed",
+    "DEFENDABLEDOCS_CLAIM_REPAIR_PROOF.md": "398bd831d667d7d6d054e773c04215170e755ce844b54f35463b9546725aaab0",
+    "DEFENDABLEROUTER_ALIGNMENT_PROOF.md": "503bd8a34aaf875b7f2c58bde357e592296964c06bd2f156edb5f2b808550e9e",
+    "FIELD_REPAIR_EXECUTIVE_REPORT.md": "db7290f120b678b0495a210c3f8a60f9183ae00aaa73dc7c549b61a6a1ee3d8b",
+    "PUBLIC_HTTP_TEST_RESULTS.md": "7ada4112370060c254048ca8630baf4bfdbcc0b58134a28e46b19826d62626f7",
+    "SAFETY_GATE_RESULT.md": "718c8f9af735c371967c5c596c509fecc0fbe6ddbed78bba6b93585e0991a40b"
+  },
+  "receipt_file_hash": "b7ab929082773fb5c697ea22efe3dea4682fa4ddc91024d095ffb5e0369715ea",
+  "hash_method": "canonical JSON with self-referential hash fields excluded where applicable; content-integrity only, not authorship/approval/attestation/certification/insurance/anchoring/production clearance",
+  "manifest_hash": "024dcce9000ac4712b390e3bc3edab16049b92b5d8ecaeb89f53da5ace30a96d"
+}
