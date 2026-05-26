@@ -80,6 +80,7 @@ function Header() {
     ["Known Compute", "#fleet"],
     ["AgentBench", "#agentbench"],
     ["Pricing", "#pricing"],
+    ["Field Demo", "/agent-operations-demo"],
   ];
   return (
     <header className="sticky top-0 z-30 border-b border-stone-900 bg-neutral-950/85 backdrop-blur">
